@@ -17,26 +17,26 @@ static int x = 1;
 class Object12
 {
 public:
-	Object12(int i) :i_{ i } { cout << "¹¹Ôìº¯Êý" << endl; }
+	Object12(int i) :i_{ i } { cout << "ï¿½ï¿½ï¿½ìº¯ï¿½ï¿½" << endl; }
 	Object12(const Object12& O)
 	{
-		cout << "¿½±´¹¹Ôìº¯Êý" << endl;
+		cout << "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ìº¯ï¿½ï¿½" << endl;
 		this->i_ = O.i_;
 	}
 	Object12(Object12&& o) :i_{o.i_}
 	{
-		cout << "ÒÆ¶¯¹¹Ôìº¯Êý" << endl;
+		cout << "ï¿½Æ¶ï¿½ï¿½ï¿½ï¿½ìº¯ï¿½ï¿½" << endl;
 	}
 	Object12& operator=(Object12&& o)
 	{
 		i_ = move(o.i_);
-		cout << "ÒÆ¶¯¸³Öµ" << endl;
+		cout << "ï¿½Æ¶ï¿½ï¿½ï¿½Öµ" << endl;
 		return *this;
 	}
 	Object12& operator=(const Object12& o)
 	{
 		i_ = o.i_;
-		cout << "¿½±´¸³Öµ" << endl;
+		cout << "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Öµ" << endl;
 		return *this;
 	}
 public:
@@ -46,20 +46,20 @@ public:
 Object12 foo()
 {
 	Object12 o(2);
-	return o; //return µ÷ÓÃµÄÊÇÒÆ¶¯¹¹Ôìº¯Êý
+	return o; //return ï¿½ï¿½ï¿½Ãµï¿½ï¿½ï¿½ï¿½Æ¶ï¿½ï¿½ï¿½ï¿½ìº¯ï¿½ï¿½
 }
 void main()
 {
 	Object12 o1(1);
-	Object12 o2 = o1;//µ÷ÓÃ¿½±´¹¹Ôìº¯Êý
+	Object12 o2 = o1;//ï¿½ï¿½ï¿½Ã¿ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ìº¯ï¿½ï¿½
 	Object12 o3(o1);
 	o2 = o1;
 	o3 = foo();  //
-	//cout << o1.i << endl;  //»á±¨´í£¬ÒòÎªiÃ»ÓÐ±»³õÊ¼»¯£¬Ä¬ÈÏ¹¹Ôìº¯Êý²»»á³õÊ¼»¯ÕâÐ©¶«Î÷
+	//cout << o1.i << endl;  //ï¿½á±¨ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ÎªiÃ»ï¿½Ð±ï¿½ï¿½ï¿½Ê¼ï¿½ï¿½ï¿½ï¿½Ä¬ï¿½Ï¹ï¿½ï¿½ìº¯ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê¼ï¿½ï¿½ï¿½ï¿½Ð©ï¿½ï¿½ï¿½ï¿½
 	int array[] = { 1,2,3 };
-	char str[] = { 'a','b','c' ,'\0'}; //ÈôÕâÑù¶¨ÒåÊ±²»¼Ó'\0'£¬½«coutÂÒÂë
-	char str1[] = "abc";  //Ä¬ÈÏÓÐ'\0'
-	cout << array << endl;  //ÕûÐÍÊý×é²»ÄÜÕâÑùÊä³ö
+	char str[] = { 'a','b','c' ,'\0'}; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½ï¿½ï¿½'\0'ï¿½ï¿½ï¿½ï¿½coutï¿½ï¿½ï¿½ï¿½
+	char str1[] = "abc";  //Ä¬ï¿½ï¿½ï¿½ï¿½'\0'
+	cout << array << endl;  //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½é²»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	cout << "str="<< str << endl;
 	cout << "str1=" << str1 << endl;
 	Object O1(1);
