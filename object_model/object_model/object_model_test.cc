@@ -39,7 +39,40 @@ void func1()
 	delete p_son;
 }
 
+//default constructor is produced when it is needed.
+class DefaultFunctionClass{
+public:  //no explicit constructor
+	int a;
+	int* p;
+};
+
+void test()
+{
+	DefaultFunctionClass d1; //no expilcit constructor
+
+	//the default constructor will not initialize the d1.a=0
+	cout <<"d1.a="<< d1.a << endl;// The variable 'd1' is being used without being initialized.
+
+	if (d1.p == nullptr) // The variable 'd1' is being used without being initialized.
+		d1.p = 0;
+}
+
+class Foo
+{
+public:
+	Foo() {}
+	Foo(int) {}
+};
+
+class Bar
+{
+public:
+	Foo foo;
+	char* str;
+};
+
 void main()
 {
+	test();
 	cout << "HeartCraft" << endl;
 }
