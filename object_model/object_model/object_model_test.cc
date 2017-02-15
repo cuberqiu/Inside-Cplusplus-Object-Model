@@ -67,12 +67,27 @@ public:
 class Bar
 {
 public:
-	Foo foo;
+	Foo foo;   //not inherit £¬it`s  include
 	char* str;
 };
 
-void main()
+void foo_bar()
 {
-	test();
+	Bar bar; //Bar::foo must be initialized here
+					//Bar::foo is a member class object £¬and it has default costructors
+}
+
+//Bar`s default constructor may be as follow
+//inline Bar::Bar()
+//{
+//	//the C++ pseudo code
+//	foo.Foo::Foo();
+//}
+
+
+void main_object()
+{
+	//test();
+	// test_word();
 	cout << "HeartCraft" << endl;
 }
