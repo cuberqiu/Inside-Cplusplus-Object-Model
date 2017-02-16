@@ -1,7 +1,3 @@
-﻿  copy_constructor.cc
-e:\github\inside-cplusplus-object-model\object_model\object_model\copy_constructor.cc(13): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-  c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\string.h(119): note: 参见“strcpy”的声明
-e:\github\inside-cplusplus-object-model\object_model\object_model\copy_constructor.cc(22): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-  c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\string.h(119): note: 参见“strcpy”的声明
+﻿  the_data_semantics.cc
   object_model.vcxproj -> E:\GitHub\Inside-Cplusplus-Object-Model\object_model\Debug\object_model.exe
   object_model.vcxproj -> E:\GitHub\Inside-Cplusplus-Object-Model\object_model\Debug\object_model.pdb (Full PDB)

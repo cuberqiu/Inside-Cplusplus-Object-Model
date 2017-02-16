@@ -21,5 +21,8 @@
     <ClCompile Include="copy_constructor.cc">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="the_data_semantics.cc">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

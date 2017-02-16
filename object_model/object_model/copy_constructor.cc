@@ -94,7 +94,7 @@ Animal test_animal(Animal a)//call copy constructor
 }
 
 
-void main()
+void main_copy()
 {
 	Animal cat(2);  //call default constructor
 	Animal dog(1); //call default constructor
