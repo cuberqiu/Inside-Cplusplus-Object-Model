@@ -46,7 +46,7 @@ public:  //no explicit constructor
 	int* p;
 };
 
-void test()
+void test_default()
 {
 	DefaultFunctionClass d1; //no expilcit constructor
 

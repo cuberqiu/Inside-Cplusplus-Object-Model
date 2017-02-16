@@ -146,7 +146,10 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="7继承.cpp" />
+    <ClCompile Include="8多态.cpp" />
     <ClCompile Include="copy_constructor.cc" />
+    <ClCompile Include="function_semantics.cc" />
     <ClCompile Include="object_model_test.cc" />
     <ClCompile Include="the_data_semantics.cc" />
   </ItemGroup>

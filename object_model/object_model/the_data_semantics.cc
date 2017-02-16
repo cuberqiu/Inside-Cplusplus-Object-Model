@@ -22,7 +22,7 @@ void test_sizeof()
 			sizeof(A)=8  sizeof(A)=12
 */
 
-void main()
+void main_data()
 {
 	test_sizeof();
 	//cout << "bobo" << endl;
