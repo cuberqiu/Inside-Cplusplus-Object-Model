@@ -24,5 +24,11 @@
     <ClCompile Include="the_data_semantics.cc">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="7继承.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="8多态.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

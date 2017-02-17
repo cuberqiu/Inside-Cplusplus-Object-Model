@@ -31,9 +31,22 @@ class MyBase
 {
 public:
 	MyBase(int i) :b{ i } { cout << "Base construct" << endl; }
-	virtual  ~MyBase() { cout << "Base destruct" << endl; }
+	  ~MyBase() { cout << "Base destruct" << endl; }
 	virtual void func1() { cout << "Base::func1()" << endl; }
 	virtual void func2() { cout << "Base::func2()" << endl; }
+	virtual void func3() { cout << "Base::func3()" << endl; }
+private:
+	int b;
+};
+
+class MyBase1
+{
+public:
+	MyBase1(int i) :b{ i } { cout << "Base1 construct" << endl; }
+	~MyBase1() { cout << "Base1 destruct" << endl; }
+	virtual void func1() { cout << "Base1::func1()" << endl; }
+	virtual void func2() { cout << "Base1::func2()" << endl; }
+	virtual void func3() { cout << "Base1::func3()" << endl; }
 private:
 	int b;
 };
@@ -52,8 +65,8 @@ public:
 		    同时，VFPTR的状态是由被最后调用的构造函数确定的。这就是为什么构造函数的调用时从基类到派生类。
 		*/
 		cout << "Derived1 construct" << endl; }
-	virtual ~MyDerived1() {
-		MyBase::func1();
+	 ~MyDerived1() {
+		//MyBase::func1();
 		cout << "Derived1 destruct" << endl; 
 	}
 	           /*析构函数可以是虚函数
@@ -64,7 +77,7 @@ public:
 			   */
 	virtual void func1() { cout << "Derived1::func1()" << endl; }
 	virtual void d1_func2() { cout << "Derived1::d1_func2()" << endl; }
-	virtual void d1_func3() { cout << "Derived1::d1_func3()" << endl; }
+	virtual void d1_func3(int i) { cout << "Derived1::d1_func3()" << endl; }
 	void d1_func4() { 
 		//在普通成员函数中调用虚函数，虚机制也不工作
 		func1(); //执行结果为：Derived1::func1()
@@ -77,10 +90,11 @@ class MyDerived2 :public MyBase
 {
 public:
 	MyDerived2(int d) :d2{ d }, MyBase(d) { cout << "Derived2 construct" << endl; }
-	virtual ~MyDerived2() { cout << "Derived2 destruct" << endl; }
+	//virtual ~MyDerived2() { cout << "Derived2 destruct" << endl; }
 	virtual void func1() { cout << "Derived2::func1()" << endl; }
 	virtual void d2_func2() { cout << "Derived2::d2_func2()" << endl; }
 	virtual void d2_func3() { cout << "Derived2::d2_func3()" << endl; }
+	virtual ~MyDerived2() { cout << "Derived2 destruct" << endl; }
 private:
 	int d2;
 };
@@ -98,6 +112,35 @@ public:
 private:
 	int d3;
 };
+
+//多继承
+class MyDerived4 :public MyBase, public MyBase1
+{
+public:
+	MyDerived4(int d4) :MyBase(d4), MyBase1(d4), d4_{ d4 } { cout << "Derived4 constructor" << endl; }
+	virtual void func1() { cout << "Derived4::func1()" << endl; }
+	virtual void d4_func2() { cout << "Derived4::d2_func2()" << endl; }
+	virtual void d4_func3() { cout << "Derived4::d2_func3()" << endl; }
+	~MyDerived4() { cout << "Derived4 destructor" << endl; }
+private:
+	int d4_;
+};
+
+void test_derived4()
+{
+	MyBase* b0_1 = new MyDerived4(10);
+	MyBase1* b1_1 = new MyDerived4(12);
+
+	b0_1->func1();//Derived4::func1()
+	b0_1->func2();//Base::func2()
+	b0_1->func3();//Base::func3()
+	//b0_1->d4_fun2();
+
+	b1_1->func1();//Derived4::func1()
+	b1_1->func2();//Base::func2()
+	b1_1->func3();//Base::func3()
+}
+
 typedef void(*func)(void);
 
 class B
@@ -127,7 +170,7 @@ void test()
 {
 	MyBase *b = new MyDerived1(1);
 	MyDerived1* d = new MyDerived1(1);
-	cout << ".......";
+	
 	b->func1();//输出结果为：MyDerived1::func1()
 	cout << "typeinfo is " << typeid(*b).name() << endl;
 	d->func1();
@@ -141,27 +184,31 @@ class A {
 	~A() {}
 };
 
-void main8()
+
+void main()
 {
 	//A a;
+	test_derived4();
 	test();
 	size_t m = sizeof(A);
 	B b(1);
 	MyBase base(1);
-	MyDerived1 d1(2);
-	MyDerived2 d2(3);
-	MyDerived3 d3(4);
+	MyDerived1 d1(2);// 单继承
+	MyDerived2 d2(3);// 单继承
+	MyDerived3 d3(4);//单继承
+	MyDerived4 d4(5);// 多继承
 
 	d1.d1_func4();
 	cout << "vfptr的地址=" << (int*)&d3 << endl;
 	cout << "vftable的地址=" << (int*)*(int*)&d3 << endl;
 	cout << "vftable第一个函数的地址=" << (int*)*(int*)*(int*)&d3 << endl;
 	cout << "类型信息地址=" << (int*)*(int*)&d3 - 1 << endl;
-	//for (int i = 0; i < 7; ++i)
-	//{
-	//	func p = (func)*((int*)*(int*)&d3 + i);
-	//	p();
-	//}
+	for (int i = 0; i < 5; ++i)
+	{//不能到第四个索引，因为class derived1的d1_fun3(int)的函数指针类型如此处不符合
+		//编译不会报错，但是运行会报错
+		func p = (func)*((int*)*(int*)&d1 + i);
+		p();
+	}
 	
 	
 	system("pause");
