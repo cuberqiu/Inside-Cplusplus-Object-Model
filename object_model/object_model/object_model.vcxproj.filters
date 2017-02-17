@@ -27,10 +27,10 @@
     <ClCompile Include="function_semantics.cc">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="constructor_destructor_copy.cc">
+    <ClCompile Include="polymorphism.cc">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="polymorphism.cpp">
+    <ClCompile Include="inherent_constructor_destructor.cc">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>

@@ -146,8 +146,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="polymorphism.cpp" />
-    <ClCompile Include="constructor_destructor_copy.cc" />
+    <ClCompile Include="polymorphism.cc" />
+    <ClCompile Include="inherent_constructor_destructor.cc" />
     <ClCompile Include="copy_constructor.cc" />
     <ClCompile Include="function_semantics.cc" />
     <ClCompile Include="object_model_test.cc" />
