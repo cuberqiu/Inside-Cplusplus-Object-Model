@@ -146,8 +146,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="7继承.cpp" />
-    <ClCompile Include="8多态.cpp" />
+    <ClCompile Include="polymorphism.cpp" />
+    <ClCompile Include="constructor_destructor_copy.cc" />
     <ClCompile Include="copy_constructor.cc" />
     <ClCompile Include="function_semantics.cc" />
     <ClCompile Include="object_model_test.cc" />

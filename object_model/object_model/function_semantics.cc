@@ -108,7 +108,7 @@ void test_member_func_ptr()
 }
 
 
-void main()
+void main_function()
 {
 	//Student* s = nullptr;
 	//s->nonstatic_func1();
