@@ -194,7 +194,7 @@ class A {
 };
 
 
-void main()
+void main_polymorphism()
 {
 	//A a;
 	test_derived4();
