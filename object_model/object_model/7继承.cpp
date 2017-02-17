@@ -32,15 +32,16 @@ Base& Base::operator=(const Base& b)
 	return *this;
 }
 
-class Derived1 :public Base {
+class Derived1 :public Base
+{
 public:
 	Derived1(int d) :Base(d), d1{d}, b1(d), b2(d){ 
 		cout << "Derived1 is constructed..." << "d1=" << d << endl; 
 		b2 = b1;
 	}
-					//构造函数的初始化列表：在没有对所有成员对象和基类对象的构造函数进行调用之前，无法进入该构造函数体。
-					//C++中认为，所有成员对象在构造函数的左括号之前就被初始化了，一旦遇到左括号，则认为所有子对象均被正确
-					//初始化。
+//构造函数的初始化列表：在没有对所有成员对象和基类对象的构造函数进行调用之前，无法进入该构造函数体。
+//C++中认为，所有成员对象在构造函数的左括号之前就被初始化了，一旦遇到左括号，则认为所有子对象均被正确
+//初始化。
 	~Derived1() { cout << "Derived1 is destructed" << endl; }
 	 //Derived1& operator=(Derived1&) = delete;
 private:
@@ -49,8 +50,8 @@ private:
 	Base b2;
 public:
 	void f(int i) { cout << "Derived1::f(int i)" << endl; }
-			//名字隐藏：任何时候重新定义了基类的一个重载函数，在新类中的所有其他的版本则被自动隐藏
-								//即，Base中的void f(string s)在其派生类Derived1中被隐藏，无法使用
+//名字隐藏：任何时候重新定义了基类的一个重载函数，在新类中的所有其他的版本则被自动隐藏
+//即，Base中的void f(string s)在其派生类Derived1中被隐藏，无法使用
 
 };
 
@@ -101,7 +102,8 @@ void main7()
 	Derived72 d72;
 	static Base7 b1;
 	void* p = &b1;
-	//不能用void*型指针来操作对象，因为void*的指针只能够含有一个地址（一个首地址），但是我们不能知道他的地址空间（即地址从哪到哪）
+	//不能用void*型指针来操作对象，因为void*的指针只能够含有一个地址（一个首地址），
+	//但是我们不能知道他的地址空间（即地址从哪到哪）
 	cout << "sizeof(Derived71)=" << sizeof(Derived71) << endl;
 	cout << "sizeof(Derived72)=" << sizeof(Derived72) << endl;
 	cout << "sizeof(static Base7)=" << sizeof(b1) << endl;
