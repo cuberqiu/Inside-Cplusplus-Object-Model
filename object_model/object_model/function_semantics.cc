@@ -80,8 +80,8 @@ void test_member_func_ptr()
 	Student* s = nullptr;
 	s->nonstatic_func1();	//Student::nonstatic func1() ,it doesn`t usr this pointer
 	//s->nonstatic_func2();   //error, it need use this pointer
-	s->static_func1();			//Student::static func1(),it doesn`t usr this pointer
-	//s->virtual_func1();			//error, it is virtual function ,and will produce a member data: vbptr,so need use this pointer
+	s->static_func1();	//Student::static func1(),it doesn`t usr this pointer
+	//s->virtual_func1();	 //error, it is virtual function ,and will produce a member data: vbptr,so need use this pointer
 
 	Student s1(1);
 	ptr_nonstatic_func ptr_nonstatic = &Student::nonstatic_func1;
