@@ -33,5 +33,11 @@
     <ClCompile Include="inherent_constructor_destructor.cc">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="runtime_semantics.cc">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="new_delete.cc">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

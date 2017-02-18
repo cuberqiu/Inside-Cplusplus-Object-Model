@@ -1,2 +1,6 @@
-﻿  object_model.vcxproj -> E:\GitHub\Inside-Cplusplus-Object-Model\object_model\Debug\object_model.exe
+﻿  runtime_semantics.cc
+e:\github\inside-cplusplus-object-model\object_model\object_model\runtime_semantics.cc(25): warning C4101: “local_i”: 未引用的局部变量
+e:\github\inside-cplusplus-object-model\object_model\object_model\runtime_semantics.cc(34): warning C4700: 使用了未初始化的局部变量“ptr”
+e:\github\inside-cplusplus-object-model\object_model\object_model\runtime_semantics.cc(39): warning C4700: 使用了未初始化的局部变量“run_time”
+  object_model.vcxproj -> E:\GitHub\Inside-Cplusplus-Object-Model\object_model\Debug\object_model.exe
   object_model.vcxproj -> E:\GitHub\Inside-Cplusplus-Object-Model\object_model\Debug\object_model.pdb (Full PDB)

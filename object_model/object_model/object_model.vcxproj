@@ -146,11 +146,13 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="new_delete.cc" />
     <ClCompile Include="polymorphism.cc" />
     <ClCompile Include="inherent_constructor_destructor.cc" />
     <ClCompile Include="copy_constructor.cc" />
     <ClCompile Include="function_semantics.cc" />
     <ClCompile Include="object_model_test.cc" />
+    <ClCompile Include="runtime_semantics.cc" />
     <ClCompile Include="the_data_semantics.cc" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
