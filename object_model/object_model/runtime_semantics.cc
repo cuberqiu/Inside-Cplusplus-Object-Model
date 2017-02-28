@@ -65,7 +65,7 @@ void test_arrayclass()
 	cout << "g_arrayclass1[0].cnt_=" << g_arrayclass1[0].cnt_ << endl; //=0
 }
 
-void main()
+void main_runtime()
 {
 	//test_runtime();
 	test_arrayclass();

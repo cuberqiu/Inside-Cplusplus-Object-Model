@@ -63,7 +63,7 @@ public:
 		this->cnt_ = a.cnt_;
 		cout << "copy constructor" << endl;
 	}
-	Animal& operator=(Animal& a)
+	Animal& operator=(const Animal& a)
 	{
 		cout << "copy assignment" << endl;
 		this->cnt_ = a.cnt_;
@@ -102,7 +102,7 @@ void main_copy()
 	//if there is explicit move assignment, there will call move assignment,
 	//or it will call expilcit copy assignment or default copy assignment
 
-	test_word();
+	//test_word();
 	system("pause");
 }
 

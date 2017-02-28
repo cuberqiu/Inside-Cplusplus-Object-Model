@@ -91,7 +91,7 @@ public:
 		//在普通成员函数中调用虚函数，虚机制也不工作
 		func1(); //执行结果为：Derived1::func1()
 		}
-private:
+public:
 	int d1;
 };
 
@@ -175,7 +175,7 @@ private:
 };
 int B::j = 1;
 
-void test()
+void test_polymophsim()
 {
 	MyBase *b = new MyDerived1(1);
 	MyDerived1* d = new MyDerived1(1);
@@ -186,21 +186,15 @@ void test()
 	
 	delete b;
 	delete d;
-}
 
-class A {
-	A() {}
-	~A() {}
-};
+	class A {
+		A() {}
+		~A() {}
+	};
 
-
-void main_polymorphism()
-{
-	//A a;
 	test_derived4();
-	test();
 	size_t m = sizeof(A);
-	B b(1);
+	//B b(1);
 	MyBase base(1);
 	MyDerived1 d1(2);// 单继承
 	MyDerived2 d2(3);// 单继承
@@ -208,17 +202,36 @@ void main_polymorphism()
 	MyDerived4 d4(5);// 多继承
 
 	d1.d1_func4();
+
 	cout << "vfptr的地址=" << (int*)&d3 << endl;
 	cout << "vftable的地址=" << (int*)*(int*)&d3 << endl;
 	cout << "vftable第一个函数的地址=" << (int*)*(int*)*(int*)&d3 << endl;
 	cout << "类型信息地址=" << (int*)*(int*)&d3 - 1 << endl;
 	for (int i = 0; i < 5; ++i)
 	{//不能到第四个索引，因为class derived1的d1_fun3(int)的函数指针类型如此处不符合
-		//编译不会报错，但是运行会报错
+	 //编译不会报错，但是运行会报错
 		func p = (func)*((int*)*(int*)&d1 + i);
 		p();
 	}
-	
-	
+}
+
+void ceshi() { cout << "ceshi" << endl; }
+
+void test_func_pointer()
+{
+	MyDerived1 d(1);
+	//指向成员函数的指针，取地址时，需要 &ClassType::func
+	void (MyDerived1::* ptr_member_func)() = &MyDerived1:: d1_func2;
+	//编译将会报错，因为函数并不在类对象所在内存中
+	//void (MyDerived1::* ptr_member_func1)() = &d.d1_func2;
+	func ptr_commen_func = ceshi;
+	ptr_commen_func();
+	(d.*ptr_member_func)();
+}
+
+//main_polymorphism()
+void main()
+{
+	test_func_pointer();
 	system("pause");
 }
